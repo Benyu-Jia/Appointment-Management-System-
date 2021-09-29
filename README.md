@@ -18,6 +18,10 @@ You can start front end by npm.
 ```sh
 $ npm start
 ```
+please be sure you install all dependency by
+```sh
+$ npm install
+```
 You can start backend by excuting main.py
 ```sh
 $ python main.py

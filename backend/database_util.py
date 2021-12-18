@@ -39,6 +39,7 @@ def import_sql(filepath, cursor):
 
 if __name__ == "__main__":
     mydb = init_db()
+    # import_sql("backend\AMS-schema.sql", mydb.cursor())
     import_sql("backend\AMS-data.sql", mydb.cursor())
     close_db(mydb)
 

@@ -62,3 +62,18 @@ CREATE PROCEDURE insert_ta_office_hours(IN faculty_email CHAR(50), IN weekdays C
 	END$$
 DELIMITER ;
 
+DROP PROCEDURE IF EXISTS check_registration;
+DELIMITER $$
+CREATE PROCEDURE check_registration(IN email CHAR(50), OUT registered INT)
+    BEGIN
+        START TRANSACTION;
+        SET registered = 1;
+        IF SELECT Password FROM cs348_project.student WHERE purdue_email=email == "null" THEN
+            SET registered = 0;
+        END IF
+        IF SELECT Password FROM cs348_project.department_faculty WHERE faculty_email=email == "null" THEN
+            SET registered = 0;
+        END IF;
+    END$$
+DELIMITER ;
+

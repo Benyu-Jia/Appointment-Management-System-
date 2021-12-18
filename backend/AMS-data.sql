@@ -7,43 +7,50 @@ INSERT INTO `Department` VALUES('CS','Computer Science'),
                                ('ME','Mechanical Engineering'),
                                ('PHYS','Physics'),
                                ('BIOL','Biological Sciences');
-INSERT INTO `Course` VALUES(26857,34800,'Information Systems','CS'),
-						   (26858,34800,'Information Systems','CS'),
-                           (26866,34800,'Information Systems','CS'),
-                           (26867,34800,'Information Systems','CS'),
-                           (26868,34800,'Information Systems','CS'),
-                           (26869,34800,'Information Systems','CS'),
-                           (26870,34800,'Information Systems','CS'),
-                           (26871,34800,'Information Systems','CS'),
-                           (26872,34800,'Information Systems','CS'),
-                           (26873,34800,'Information Systems','CS'),
-                           (26874,34800,'Information Systems','CS'),
-                           (29226,41600,'Probability','STAT'),
-                           (61526,41600,'Probability','STAT'),
-                           (40115,41600,'Probability','STAT'),
-                           (19765,41600,'Probability','STAT'),
-                           (15941,41600,'Probability','STAT'),
-                           (17701,41600,'Probability','STAT'),
-                           (68717,41600,'Probability','STAT');
-INSERT INTO `Department_Faculty` VALUES('test@purdue.edu', 'test', 'Professor', 'HAAS 123', 'asd123'),
-									   ('test1@purdue.edu', 'test1', 'Professor', 'HAAS 124', 'asd123'),
-                                       ('test2@purdue.edu', 'test2', 'Professor', 'HAAS 125', 'asd123'),
-                                       ('test3@purdue.edu', 'test3', 'Professor', 'HAAS 126', 'asd123'),
-                                       ('test4@purdue.edu', 'test4', 'Professor', 'HAAS 134', 'asd123'),
-                                       ('test5@purdue.edu', 'test5', 'Professor', 'HAAS 135', 'asd123'),
-                                       ('test6@purdue.edu', 'test6', 'Professor', 'HAAS 136', 'asd123'),
-                                       ('test7@purdue.edu', 'test7', 'Professor', 'HAAS 137', 'asd123'),
-                                       ('test8@purdue.edu', 'test8', 'Professor', 'HAAS 138', 'asd123'),
-                                       ('test9@purdue.edu', 'test9', 'Professor', 'HAAS 139', 'asd123');
+INSERT INTO `Course` VALUES(348,01,'Information Systems','CS'),
+                           (381,01,'Algorithm Analysis','CS'),
+                           (106,01,'Calculus','MA');
+INSERT INTO `Department_Faculty` VALUES('fac01', 'faculty01', 'Professor', 'HAAS 123', 'null'),
+									   ('fac02', 'faculty02', 'Professor', 'HAAS 124', 'null'),
+                                       ('fac03', 'faculty03', 'Advisor', 'HAAS 125', 'null'),
+                                       ('fac04', 'faculty04', 'Professor', 'HAAS 126', 'null'),
+                                       ('fac05', 'faculty05', 'Advisor', 'HAAS 134', 'null'),
+                                       ('fac06', 'faculty06', 'Professor', 'HAAS 135', 'null');
 
-INSERT INTO `Student`VALUES('student1@purdue.edu','Liam','123456'),
-						   ('student2@purdue.edu','Noah','323jfedd'),
-                           ('student3@purdue.edu','Oliver','983423'),
-						   ('student4@purdue.edu','Elijah','12fedd6'),
-                           ('student5@purdue.edu','Charlotte','9930022'),
-                           ('student6@purdue.edu','Ava','aaakd999'),
-                           ('student7@purdue.edu','Emma','000qqq'),
-                           ('student8@purdue.edu','Jasper','eight88');
-                           
-INSERT INTO Office_hour VALUES(1,'Monday','8:00','8:10'),(2,'Monday','8:00','9:00');
+INSERT INTO `Student`VALUES('stu01','student01','null'),
+						   ('stu02','student02','null'),
+                           ('stu03','student03','null'),
+						   ('stu04','student04','null'),
+                           ('stu05','student05','null');
+
+INSERT INTO `cs348_project`.`course_instructor` (`CRN`, `faculty_email`) VALUES ('348', 'fac01'),
+('381', 'fac02');
+
+INSERT INTO `cs348_project`.`ad_student` (`purdue_email`, `faculty_email`) VALUES ('stu01', 'fac03'),
+('stu02', 'fac05');
+
+INSERT INTO `cs348_project`.`course_ta` (`CRN`, `TAID`) VALUES ('348', '01'),
+('348', '02');
+
+INSERT INTO `cs348_project`.`depref` (`depID`, `faculty_email`) VALUES ('CS', 'fac01'),
+('CS', 'fac02');
+
+
+INSERT INTO `cs348_project`.`office_hour` (`num`, `Weekdays`, `start_time`, `end_time`) VALUES ('01', 'Monday', '8:00', '8:10'),
+('02', 'Monday', '8:00', '8:10'),
+('03', 'Monday', '8:00', '8:10');
+
+INSERT INTO `cs348_project`.`faculty_officehour` (`faculty_email`, `f_num`) VALUES ('fac01', '1'),
+("fac03","2");
+
+INSERT INTO `cs348_project`.`rating_score` (`purdue_email`, `rating`) VALUES ('fac01', '5.0');
+
+INSERT INTO `cs348_project`.`rating_data` (`student_email`, `purdue_email`, `rating`) VALUES ('stu01', 'fac01', '5.0');
+
+INSERT INTO `cs348_project`.`ta_officehour` (`TAID`, `t_num`) VALUES ('1', '3');
+
+INSERT INTO `cs348_project`.`appointment_time` (`purdue_email`, `num`, `day_time`) VALUES ('stu02', '1', '2021-12-20');
+
+
+
 

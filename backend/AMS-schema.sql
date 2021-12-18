@@ -1,11 +1,10 @@
-DROP TABLE IF EXISTS Department;
+
 DROP TABLE IF EXISTS Course;
 DROP TABLE IF EXISTS Department_Faculty;
-DROP TABLE IF EXISTS Student;
 DROP TABLE IF EXISTS TA;
 DROP TABLE IF EXISTS Office_hour;
+DROP TABLE IF EXISTS Register;
 DROP TABLE IF EXISTS Appointment_time;
-DROP TABLE IF EXISTS Rating_score;
 DROP TABLE IF EXISTS RATING_data;
 DROP TABLE IF EXISTS Course_TA;
 DROP TABLE IF EXISTS DepRef;
@@ -13,6 +12,9 @@ DROP TABLE IF EXISTS ad_student;
 DROP TABLE IF EXISTS Course_Instructor;
 DROP TABLE IF EXISTS TA_officeHour;
 DROP TABLE IF EXISTS faculty_officeHour;
+DROP TABLE IF EXISTS Department;
+DROP TABLE IF EXISTS Student;
+DROP TABLE IF EXISTS Rating_score;
 
 CREATE TABLE Department(depID CHAR(5) NOT NULL, 
 						dep_name CHAR(30), 
@@ -59,10 +61,10 @@ CREATE TABLE Rating_score(purdue_email CHAR(50) NOT NULL,
 						  rating INTEGER,
                           PRIMARY KEY(purdue_email));
                           
-CREATE TABLE RATING_data(Serial_number INTEGER NOT NULL,
+CREATE TABLE RATING_data(student_email CHAR(50) NOT NULL,
 						 purdue_email CHAR(50) NOT NULL,
                          rating INTEGER,
-                         PRIMARY KEY(Serial_number),
+                         PRIMARY KEY(student_email),
                          FOREIGN KEY(purdue_email) REFERENCES Rating_score(purdue_email));
                          
 CREATE TABLE Course_TA(CRN INTEGER NOT NULL,
@@ -88,7 +90,12 @@ CREATE TABLE TA_officeHour(TAID INTEGER NOT NULL,
 CREATE TABLE faculty_officeHour(faculty_email CHAR(50) NOT NULL,
                                 f_num INTEGER NOT NULL,
                                 PRIMARY KEY(faculty_email, f_num));
-						
+
+CREATE TABLE Register(purdue_email CHAR(50) NOT NULL,
+                                CRN INTEGER NOT NULL,
+                                PRIMARY KEY(purdue_email, CRN),
+                                FOREIGN KEY(purdue_email) REFERENCES Student(purdue_email),
+                                FOREIGN KEY(CRN) REFERENCES Course(CRN));
 
                     
                     

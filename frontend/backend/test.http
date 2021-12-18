@@ -1,0 +1,87 @@
+### signup request
+POST http://127.0.0.1:5000/api/signup
+content-type: application/json
+
+{
+    "email": "stu02",
+    "password": "1234"
+}
+
+
+### sign in request
+POST http://127.0.0.1:5000/api/signin
+content-type: application/json
+
+{
+    "email": "stu01",
+    "password": "1234"
+}
+
+### edit password request
+POST http://127.0.0.1:5000/api/edit_password
+content-type: application/json
+
+{
+    "email": "jia127",
+    "old_password": "test",
+    "new_password": "null"
+}
+
+### cancel appointment
+POST http://127.0.0.1:5000/api/cancel_appointment
+content-type: application/json
+
+{
+    "email": "stu02",
+    "password": "1234",
+    "office_hour_num": "2",
+    "day_time": "2021-12-20"
+}
+
+### edit appointment
+POST http://127.0.0.1:5000/api/query_appointment_info
+content-type: application/json
+
+{
+    "email": "stu01",
+    "password": "1234",
+    "old_office_hour_num": "3",
+    "old_day_time": "2021-12-20",
+    "new_office_hour_num": "1",
+    "new_day_time": "2021-12-20"
+}
+
+### rate instructor
+POST http://127.0.0.1:5000/api/rate_instructor
+content-type: application/json
+
+{
+    "student_email": "stu02",
+    "password": "1234",
+    "instructor_email": "fac01",
+    "score": "4.5"
+}
+
+### query_appointment_info
+POST http://127.0.0.1:5000/api/query_appointment_info
+content-type: application/json
+
+{
+    "office_hour_num": "1"
+}
+
+### query_similar_office_hour
+POST http://127.0.0.1:5000/api/query_similar_office_hour
+content-type: application/json
+
+{
+    "office_hour_num": "1 "
+}
+
+### query_instructor
+POST http://127.0.0.1:5000/api/query_instructor
+content-type: application/json
+
+{
+    "student_email": "stu01"
+}

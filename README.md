@@ -28,4 +28,5 @@ $ python main.py
 ```
 Then you can use you phone or pad down load EXPO GO and run app on you end.
 By the way, since application use http to communicate with backend, please be sure run on the same Internet and change the ip in each file of axios function.
+and you can use test.http in backend folder to check backend. REST client in VS code is useful.
 
